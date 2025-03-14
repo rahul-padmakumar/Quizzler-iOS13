@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var progressView:UIProgressView!
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var option1Button: UIButton!
     
     var questionHelper = QuestionHelper()
     
@@ -49,6 +50,13 @@ class ViewController: UIViewController {
     
     func updateUI(){
         questionLabel.text = questionHelper.getQuestion()
+        
+        option1Button.setTitle(questionHelper.getOptions()[0], for: .normal)
+        trueButton.setTitle(questionHelper.getOptions()[1], for: .normal)
+        falseButton.setTitle(questionHelper.getOptions()[2], for: .normal)
+        
+        
+        option1Button.backgroundColor = UIColor.clear
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
         progressView.progress = questionHelper.getProgress()
